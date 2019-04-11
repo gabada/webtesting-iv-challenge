@@ -2,7 +2,10 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('chars', tbl => {
     tbl.increments();
 
-    tbl.string('name', 255).notNullable();
+    tbl
+      .string('name', 255)
+      .notNullable()
+      .unique();
   });
 };
 
